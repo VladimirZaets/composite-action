@@ -18,7 +18,7 @@ jobs:
       - name: test
         id: test
         uses: ./
-          with:
-            token: 'hello world'
+        with:
+          token: 'hello world'
 
 
