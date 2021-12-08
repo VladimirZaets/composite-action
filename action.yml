@@ -10,5 +10,7 @@ inputs:
 runs:
   using: 'composite'
   steps:
+    - run: npm install
+      shell: bash
     - run: node index.js '${{inputs.token}}' '${{inputs.gh_token}}'
       shell: bash

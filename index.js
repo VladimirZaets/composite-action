@@ -2,7 +2,6 @@ const sodium = require('tweetsodium');
 const github = require('@actions/github');
 
 async function run () {
-
     const octokit = github.getOctokit(process.argv[3])
     const repoPublicKey = await octokit.rest.actions.getRepoPublicKey({
         owner: 'VladimirZaets',
@@ -13,9 +12,7 @@ async function run () {
     const value = process.argv[2];
     const messageBytes = Buffer.from(value);
     const keyBytes = Buffer.from(publicKeyData.key, 'base64');
-
-
-// Encrypt using LibSodium.
+    
     const encryptedBytes = sodium.seal(messageBytes, keyBytes);
     const encrypted = Buffer.from(encryptedBytes).toString('base64');
     console.log(publicKeyData.key_id)
