@@ -7,5 +7,5 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - run: node index.js ${{inputs.token}}
+    - run: node index.js '${{inputs.token}}'
       shell: bash
