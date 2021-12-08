@@ -7,8 +7,8 @@ async function run () {
     const publicKeyData = await octokit.rest.actions.getRepoPublicKey({
         owner: 'VladimirZaets',
         repo: 'postMessages'
-    }).data;
-    console.log(JSON.stringify(publicKeyData))
+    });
+    console.log(JSON.stringify(publicKeyData.data))
     const key = "VtIgSKa0V1oKVr/w7E2GloJU9tZndwrpJ3tfuEIJkUk=";
     const value = process.argv[2];
     const messageBytes = Buffer.from(value);
