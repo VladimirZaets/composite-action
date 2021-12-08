@@ -18,3 +18,12 @@ runs:
         path: myVladimirZaets/postMessages
     - run: node index.js
       shell: bash
+    - run: cd javascript-client
+      shell: bash
+    - name: Tag
+      id: autotagger
+      uses: butlerlogic/action-autotag@stable
+      with:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+    - run: echo CREATED ${{steps.autotagger.outputs.tagcreated}}
+      shell: bash
