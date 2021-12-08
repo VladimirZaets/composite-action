@@ -4,8 +4,11 @@ inputs:
   token: #organization and repository name
     description: 'The repository to push to'
     required: true
+  gh_token:
+    description: 'gh_token'
+    required: true
 runs:
   using: 'composite'
   steps:
-    - run: node index.js '${{inputs.token}}'
+    - run: node index.js '${{inputs.token}}' '${{inputs.gh_token}}'
       shell: bash

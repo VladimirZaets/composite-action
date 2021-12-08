@@ -1,10 +1,15 @@
 const sodium = require('tweetsodium');
 const github = require('@actions/github');
 
+const octokit = github.getOctokit(process.argv[3])
+const publicKeyData = octokit.rest.actions.getRepoPublicKey({
+    owner: 'VladimirZaets',
+    repo: 'postMessages'
+})
+console.log(publicKeyData)
 const key = "VtIgSKa0V1oKVr/w7E2GloJU9tZndwrpJ3tfuEIJkUk=";
-const value = "vova_super";
-console.log(process.argv);
-
+const value = process.argv[2];
+console.log(value);
 const messageBytes = Buffer.from(value);
 const keyBytes = Buffer.from(key, 'base64');
 
