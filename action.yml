@@ -10,5 +10,11 @@ inputs:
     required: false
     default: '/'
 runs:
-  using: 'node12'
-  main: 'index.js'
+  using: 'composite'
+  steps:
+    - uses: actions/checkout@v2
+      with:
+        repository: VladimirZaets/postMessages
+        path: myVladimirZaets/postMessages
+    - run: node index.js
+      shell: bash

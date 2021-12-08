@@ -7,4 +7,4 @@ const getDirectories = source =>
         //.filter(dirent => dirent.isDirectory())
         .map(dirent => dirent.name)
 
-console.log(JSON.stringify(getDirectories(`${__dirname}/rust-client`)));
+console.log(JSON.stringify(getDirectories(`${__dirname}`)));
