@@ -13,3 +13,5 @@ jobs:
         id: test
         uses: ./
 
+        #add install
+
