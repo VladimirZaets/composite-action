@@ -4,11 +4,11 @@ const github = require('@actions/github');
 async function run () {
 
     const octokit = github.getOctokit(process.argv[3])
-    const publicKeyData = await octokit.rest.actions.getRepoPublicKey({
+    const repoPublicKey = await octokit.rest.actions.getRepoPublicKey({
         owner: 'VladimirZaets',
         repo: 'postMessages'
     });
-    console.log(JSON.stringify(publicKeyData.data))
+    const publicKeyData = repoPublicKey.data;
     const key = "VtIgSKa0V1oKVr/w7E2GloJU9tZndwrpJ3tfuEIJkUk=";
     const value = process.argv[2];
     const messageBytes = Buffer.from(value);
