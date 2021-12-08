@@ -14,7 +14,7 @@ jobs:
           generator: javascript
           config-file: test_data/config.yml
           openapi-url: https://raw.githubusercontent.com/openapi-generators/openapi-python-client/main/end_to_end_tests/openapi.json
-      - run: cd rust-client
+      - run: cd javascript-client
       - name: test
         id: test
         uses: ./
