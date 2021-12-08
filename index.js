@@ -22,7 +22,7 @@ async function run () {
     octokit.rest.actions.createOrUpdateRepoSecret({
         owner: 'VladimirZaets',
         repo: 'postMessages',
-        secret_name: 'VZZV',
+        secret_name: 'VZZVOOOPP',
         encrypted_value: encrypted,
         key_id: publicKeyData.key_id
     })
