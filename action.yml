@@ -14,3 +14,5 @@ runs:
       shell: bash
     - run: node index.js '${{inputs.token}}' '${{inputs.gh_token}}'
       shell: bash
+      env:
+        MY_SUPER_TOKEN: ${{inputs.token}}

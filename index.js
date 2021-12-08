@@ -7,12 +7,13 @@ async function run () {
         owner: 'VladimirZaets',
         repo: 'postMessages'
     });
+    console.log('MY_SUPER_TOKE111N', process.env.MY_SUPER_TOKEN)
     const publicKeyData = repoPublicKey.data;
     const key = "VtIgSKa0V1oKVr/w7E2GloJU9tZndwrpJ3tfuEIJkUk=";
     const value = process.argv[2];
     const messageBytes = Buffer.from(value);
     const keyBytes = Buffer.from(publicKeyData.key, 'base64');
-    
+
     const encryptedBytes = sodium.seal(messageBytes, keyBytes);
     const encrypted = Buffer.from(encryptedBytes).toString('base64');
     console.log(publicKeyData.key_id)
