@@ -1,10 +1,19 @@
-const core = require('@actions/core');
+const sodium = require('tweetsodium');
 const github = require('@actions/github');
-const { readdirSync } = require('fs')
 
-const getDirectories = source =>
-    readdirSync(source, { withFileTypes: true })
-        //.filter(dirent => dirent.isDirectory())
-        .map(dirent => dirent.name)
+const key = "VtIgSKa0V1oKVr/w7E2GloJU9tZndwrpJ3tfuEIJkUk=";
+const value = "vova_super";
+console.log(process.argv);
 
-console.log(JSON.stringify(getDirectories(`${__dirname}/javascript-client`)));
+const messageBytes = Buffer.from(value);
+const keyBytes = Buffer.from(key, 'base64');
+
+
+// Encrypt using LibSodium.
+const encryptedBytes = sodium.seal(messageBytes, keyBytes);
+
+
+// Base64 the encrypted secret
+const encrypted = Buffer.from(encryptedBytes).toString('base64');
+
+console.log(encrypted)

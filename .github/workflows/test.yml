@@ -18,6 +18,8 @@ jobs:
       - name: test
         id: test
         uses: ./
+          with:
+            GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
         #add install
 

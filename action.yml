@@ -1,29 +1,21 @@
-name: 'NPM publisher'
-description: 'Push code to repository and create new tag'
+name: 'Push and Publish'
+description: 'Push code to repository and publish secrets to remote repository'
 inputs:
-  destinationRepository: #organization and repository name
+  REMOTE_GIT_TOKEN: #organization and repository name
     description: 'The repository to push to'
-    required: false
-    #default: ${{github.repository}}
-  destinationPath: #path to folder
+    required: true
+  generator:
     description: 'The folder to push to'
+    required: true
+  github-branch:
+    description: ''
     required: false
-    default: '/'
+    default: main
+  github-repo:
+    description: '',
+    required: true
 runs:
   using: 'composite'
   steps:
-    - uses: actions/checkout@v2
-      with:
-        repository: VladimirZaets/postMessages
-        path: myVladimirZaets/postMessages
-    - run: node index.js
-      shell: bash
-    - run: cd javascript-client
-      shell: bash
-    - name: Tag
-      id: autotagger
-      uses: butlerlogic/action-autotag@stable
-      with:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-    - run: echo CREATED ${{steps.autotagger.outputs.tagcreated}}
+    - run: node index.js ${{inputs.token}}
       shell: bash
