@@ -1,18 +1,8 @@
 name: 'Push and Publish'
 description: 'Push code to repository and publish secrets to remote repository'
 inputs:
-  REMOTE_GIT_TOKEN: #organization and repository name
+  token: #organization and repository name
     description: 'The repository to push to'
-    required: true
-  generator:
-    description: 'The folder to push to'
-    required: true
-  github-branch:
-    description: ''
-    required: false
-    default: main
-  github-repo:
-    description: '',
     required: true
 runs:
   using: 'composite'
