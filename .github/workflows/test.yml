@@ -19,7 +19,6 @@ jobs:
         id: test
         uses: ./
           with:
-            GH_TOKEN: ${{ secrets.GH_TOKEN }}
+            token: 'hello world'
 
-        #add install
 
