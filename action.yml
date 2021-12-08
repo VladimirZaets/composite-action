@@ -1,0 +1,27 @@
+name: 'NPM publisher'
+description: 'Push code to repository and create new tag'
+inputs:
+  destinationRepository: #organization and repository name
+    description: 'The repository to push to'
+    required: false
+    default: ${{github.repository}}
+  destinationPath: #path to folder
+    description: 'The folder to push to'
+    required: false
+    default: '/'
+  GITHUB_TOKEN: #github token
+    description: 'Github token to perform action'
+    required: false
+    default: ${{secrets.GITHUB_TOKEN}}
+  NPM_TOKEN:
+    description: 'Token to publish to NPM'
+    required: false
+    default: ${{secrets.NPM_TOKEN}}
+  clientPath: 'Path to generated client'
+    description: 'The path to generated client'
+    required: false
+    default: '.'
+outputs:
+runs:
+  using: 'node12'
+  main: 'index.js'
