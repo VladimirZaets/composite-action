@@ -21,5 +21,6 @@ async function run () {
     const encrypted = Buffer.from(encryptedBytes).toString('base64');
 }
 
+run();
 // Base64 the encrypted secret
 
